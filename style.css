@@ -1,119 +1,357 @@
-/* style.css — untuk repositori belajarweb/minimal-cdn */
+/* Reset & Global */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(145deg, #f5f7fa 0%, #e4e8f0 100%);
-  padding: 1.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
 }
 
-.container {
-  max-width: 520px;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 2.5rem;
-  padding: 2.5rem 2rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  transition: transform 0.2s ease;
+/* Navbar */
+.navbar {
+    box-shadow: 0 2px 15px rgba(0,0,0,0.3);
 }
 
-h1 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #0b1e33;
-  margin-bottom: 0.25rem;
-  letter-spacing: -0.02em;
+.navbar-brand {
+    font-size: 1.8rem !important;
+    letter-spacing: 1px;
 }
 
-.subtitle {
-  color: #4a5b6e;
-  font-size: 0.95rem;
-  font-weight: 400;
-  border-bottom: 2px dashed #d0d9e6;
-  padding-bottom: 1.2rem;
-  margin-bottom: 1.8rem;
+.nav-link {
+    font-weight: 500;
+    transition: all 0.3s;
+    position: relative;
 }
 
-.card {
-  background: #ffffff;
-  border-radius: 1.8rem;
-  padding: 2rem 1.5rem;
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02), 0 8px 20px rgba(0,20,40,0.08);
+.nav-link:hover {
+    color: #ffc107 !important;
 }
 
-#display-text {
-  font-size: 1.2rem;
-  color: #1e2f41;
-  margin-bottom: 1.8rem;
-  min-height: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f2f5fa;
-  border-radius: 1.2rem;
-  padding: 0.8rem 1rem;
-  transition: all 0.3s ease;
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #ffc107;
+    transition: all 0.3s;
 }
 
-#display-text.pop {
-  background: #dbeafe;
-  color: #1a4b8c;
-  transform: scale(1.02);
+.nav-link:hover::after {
+    width: 80%;
+    left: 10%;
 }
 
-#action-btn {
-  background: #0b1e33;
-  color: white;
-  border: none;
-  padding: 0.9rem 2.4rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: 3rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(11, 30, 51, 0.25);
-  letter-spacing: 0.3px;
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: white;
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
 }
 
-#action-btn:hover {
-  background: #1a3a5c;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(11, 30, 51, 0.35);
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 500px;
+    height: 500px;
+    background: rgba(255, 193, 7, 0.05);
+    border-radius: 50%;
 }
 
-#action-btn:active {
-  transform: scale(0.97);
+.hero-section h1 {
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-footer {
-  margin-top: 2rem;
-  color: #6b7d93;
-  font-size: 0.8rem;
-  letter-spacing: 0.2px;
+.hero-section .btn-warning {
+    padding: 12px 40px;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: all 0.3s;
 }
 
-footer small {
-  background: rgba(0,0,0,0.03);
-  padding: 0.25rem 1rem;
-  border-radius: 2rem;
+.hero-section .btn-warning:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 25px rgba(255, 193, 7, 0.4);
 }
 
-#count-lines {
-  font-weight: 700;
-  color: #0b1e33;
-  background: #eef2f7;
-  padding: 0 0.4rem;
-  border-radius: 4px;
+/* Card Berita */
+.berita-card {
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    height: 100%;
+    background: white;
+    position: relative;
+}
+
+.berita-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.berita-card .img-container {
+    position: relative;
+    overflow: hidden;
+    height: 220px;
+}
+
+.berita-card .img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.berita-card:hover .img-container img {
+    transform: scale(1.1);
+}
+
+.berita-card .kategori-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    backdrop-filter: blur(5px);
+}
+
+.berita-card .card-body {
+    padding: 1.5rem;
+}
+
+.berita-card .card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.berita-card .card-text {
+    color: #6c757d;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.berita-card .meta-info {
+    font-size: 0.8rem;
+    color: #999;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #eee;
+}
+
+.berita-card .btn-baca {
+    background: linear-gradient(135deg, #ffc107, #ffca2c);
+    color: #000;
+    font-weight: 600;
+    padding: 8px 25px;
+    border-radius: 25px;
+    border: none;
+    transition: all 0.3s;
+    width: 100%;
+}
+
+.berita-card .btn-baca:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(255, 193, 7, 0.3);
+}
+
+/* Kategori Colors */
+.kategori-nasional { background: #dc3545; }
+.kategori-internasional { background: #0d6efd; }
+.kategori-teknologi { background: #198754; }
+.kategori-olahraga { background: #fd7e14; }
+.kategori-hiburan { background: #6f42c1; }
+
+/* Modal Detail */
+.modal-body img {
+    max-height: 400px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.modal-body .konten-berita {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.modal-body .konten-berita p {
+    margin-bottom: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-section {
+        text-align: center;
+        padding: 60px 0;
+    }
+    
+    .berita-card .img-container {
+        height: 180px;
+    }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffc107;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ffca2c;
+}
+
+/* Style untuk tabel dari Google Docs */
+.konten-berita table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+.konten-berita table th,
+.konten-berita table td {
+    border: 1px solid #ddd;
+    padding: 10px 12px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.konten-berita table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #333;
+}
+
+.konten-berita table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.konten-berita table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Responsive table */
+@media (max-width: 768px) {
+    .konten-berita table {
+        font-size: 12px;
+    }
+    .konten-berita table th,
+    .konten-berita table td {
+        padding: 6px 8px;
+    }
+}
+
+/* ============================================
+   PERBAIKAN UNTUK KODE / PRE / CODE
+   ============================================ */
+
+/* Kotak kode HTML */
+.konten-berita pre,
+.konten-berita code {
+    display: block;
+    background: #1e1e2e;
+    color: #cdd6f4;
+    padding: 16px 20px;
+    border-radius: 8px;
+    font-family: 'Courier New', 'Consolas', monospace;
+    font-size: 14px;
+    line-height: 1.7;
+    
+    /* PENTING: Cegah mbleber */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    
+    /* Batasi ukuran & scroll */
+    max-width: 100%;
+    max-height: 400px;
+    overflow-x: auto;
+    overflow-y: auto;
+    
+    /* Tambahan */
+    border: 1px solid #313244;
+    margin: 15px 0;
+}
+
+/* Inline code (di dalam teks) */
+.konten-berita code:not(pre code) {
+    display: inline;
+    background: #f4f4f4;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: #d63384;
+    white-space: normal;
+    word-break: break-all;
+}
+
+/* Scrollbar untuk kotak kode */
+.konten-berita pre::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.konten-berita pre::-webkit-scrollbar-track {
+    background: #1e1e2e;
+    border-radius: 4px;
+}
+
+.konten-berita pre::-webkit-scrollbar-thumb {
+    background: #6c7086;
+    border-radius: 4px;
+}
+
+.konten-berita pre::-webkit-scrollbar-thumb:hover {
+    background: #9399b2;
+}
+
+/* List styling */
+.konten-berita ul,
+.konten-berita ol {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.konten-berita li {
+    margin-bottom: 5px;
 }
